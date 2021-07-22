@@ -1,0 +1,680 @@
+@charset "utf-8";
+*{
+    margin:0;
+    padding: 0;
+    caret-color: transparent;
+}
+html{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+body{
+    background: linear-gradient(-90deg,#000000, #1b1b1b );
+    background-size: 500%;
+    animation: gradient 15s ease infinite;
+    overflow-x: hidden;
+}
+/* HEADER*/
+header{
+    display: none;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 100;
+    font-size: 1.5em;
+    background-color: #1b1b1b;
+    color:rgb(155, 155, 155);
+    height: 10vh;
+    width: 100%;
+    border-bottom: 2px solid rgba(243, 00, 00, 1);
+}
+.header-div{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+#header-logo{
+    font-family:  'Helvetica Neue', sans-serif;
+    display: flex;
+    font-size: 1em;
+    align-items: center;
+    animation: title 6s ease infinite;
+    padding: 20px;
+}
+nav ul .closeMenu , .icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+.fa-facebook:hover {color: rgb(0, 110, 255);}
+.fa-twitter:hover {color: rgb(86, 154, 243);}
+.fa-instagram:hover {color: rgb(255, 0, 191);}
+.fa-github:hover {color: rgb(255, 123, 0);}
+
+header .header-div nav #hamburger{
+    display: none;
+    font-size: 2em;
+    width: 80%;
+    padding: 10px;
+    justify-content: right;
+    
+}
+header .header-div nav #hamburger:hover{
+    color: red;
+    transition: 2s;
+    
+}
+
+
+nav , nav ul, nav ul ol{
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    justify-content:space-around; 
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+}
+nav ul li{
+    text-align: right;
+    font-size: 1.3em;
+    text-decoration: none;
+    list-style: none;
+    
+}
+nav ul li a:hover{
+    cursor: pointer;
+    animation: a-hover 2s ease-out forwards ;   
+}
+header #catalog {
+    width: 100%;
+    display: flex;
+    z-index:-10;
+    right:  -100%;
+    position: relative;
+    justify-content: flex-end;
+
+}
+header #catalog form{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1b1b1b;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    border-top: 2px solid rgba(243, 00, 00, 1);
+}
+header #catalog form .row{
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+flex-wrap: nowrap;
+}
+header #catalog form #button-search{
+ background: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color:black;
+ cursor: pointer;
+ box-shadow: none;
+ border-top: 1px solid black;
+ border-radius: 0px 0px 20px 20px;
+ height: 50px;
+ width: 100px;
+}
+header #catalog form  #category_id{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 3vh;
+ box-shadow: 0px;
+ color:rgb(228, 173, 70);
+ height: 50px;
+ border-radius: 0px 0px 10px 10px ;
+ cursor: pointer;
+}
+header #catalog form  #category_id option{
+    cursor: pointer;
+}
+header #catalog form #search-text-category{
+ background: white;
+ display: flex;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ justify-content: center;
+ align-items: center;
+ box-shadow: none;
+ color:black;
+ text-align: center;
+ box-shadow: none; 
+ border:0px;
+ cursor: pointer;
+ font-size: 3vh;
+ text-transform: uppercase;
+ border-radius: 10px;
+ width:200px;
+ height: 50px;
+}
+header #catalog form #search-text-category::placeholder{
+    font-style:italic;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3vh;
+}
+.hide_search { 
+    display: none;
+}
+.show_search { 
+    display: none;
+    position: relative;
+}
+/* ASIDE*/
+aside{
+    background: url('../photos/tlo.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 60vh;
+    width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    text-transform: uppercase;
+    font-size: 150px;
+    display: flex;
+    display: none;
+    flex-wrap: nowrap;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+/* Main */
+main{
+/* padding: 10vh 0vh 3vh 0vh; */
+display: none;
+flex-direction: column;
+align-items: center;
+color: rgb(219, 219, 219);
+font-size: 2rem;
+}
+.slide{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+}
+.hi-slide {
+    position: relative;
+    width: 100%;
+    margin: 20px;
+    height: 60vh;
+      /*background-color: white;*/
+      }     
+main .hi-next,
+main .hi-prev { 
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    height: 100%;
+    width: 10vw;     
+    text-align: center;
+    border: 2px solid white;
+    background-color: rgba(231, 231, 231, 0.466); 
+    color:white;               
+    transition: all .1s;
+    font-size: 5em; 
+    font-weight: bold;
+    cursor: pointer;
+            }
+.hi-slide .hi-next:hover, .hi-slide .hi-prev:hover 
+{
+opacity: 1; 
+/*background-color: #fff;*/  
+}
+
+.hi-slide .hi-prev { right: 0px; }
+            
+    .hi-slide .hi-prev::before { content: '>'; }
+    .hi-slide .hi-next { left: 0px;  }
+    .hi-slide .hi-next::before { content: '<'; }
+    
+.hi-slide > ul{ 
+    list-style: none;
+    overflow: hidden; 
+    position: relative;
+    border-radius: 10px;
+    height: 60vh;
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+}
+        
+    
+.hi-slide > ul > li {
+    overflow: hidden;
+    position: absolute; 
+    z-index: 0; 
+    top:0;
+    left:0 ;
+    width: 0;
+    height: 100%; 
+    margin: 0;
+    border: 2px solid white; 
+    padding: 0; 
+    transform: translateX(-50%);               
+    background-color: #333; 
+}
+    
+.hi-slide > ul > li > img {
+    width: 100%; height: 100%;  
+    background-position: center;
+    cursor: pointer;
+    }
+.hi-slide > ul > li > label {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: black;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    animation: title 6s ease infinite;
+    font-weight: bold;
+    font-size: 2em;
+    background-color: rgba(255, 255, 255, 0.185);
+    font-family: 'Lato', sans-serif;
+    padding: 20px;
+    cursor: pointer;
+    }
+        /* Content*/
+.container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+}
+.container ul, .container a{
+    list-style: none;
+    text-decoration: none;
+}
+.container ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.container h1{
+    border-bottom: 2px solid rgba(243, 00, 00, 1);
+}
+.box{
+    width:20vw;
+    height:610px;
+    background-color:#1e1e26;
+    border-radius: 10px;
+    box-shadow: 2px 10px 12px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;  
+    box-sizing: border-box;
+    margin: 20px 10px;
+}
+.box img{
+    width: 100%;
+    object-fit: cover;
+}
+.model{
+    height: 350px;
+    max-height: 100%;
+    max-width: 100%;
+}
+.details{
+    display: flex;
+    justify-content:space-around ;
+    width: 100%;
+}
+.details p{
+    font-family: calibri;
+    font-weight: bold;
+    display: flex;
+    width: 60%;
+    color:#6a6a74;
+}
+.details button, header #header-logo a{
+    height: 100x;
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: 2em;
+
+    
+}
+.title-items{
+    color:#d1d1ee;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 10px;
+    font-family: bebas kai;
+    font-size: 25px;
+}
+.box:hover{
+    background-color: #17171d;
+    transform-style: preserve-3d;
+    transform: scale(1.02);
+    transition: all ease 0.3s;
+}
+.box:hover .title-items, .box:hover .details p, .box:hover .details button,  header #header-logo a {
+    color:#c0292b;
+    transition: all ease 0.5s;
+}
+
+main #pages{
+    display: flex;
+    justify-content: center;
+    color:black;
+}
+
+main #pages .page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: red;
+    background-color: white;
+    cursor: pointer;
+} 
+ main #pages .page:hover{
+    transform: scale(1.2);
+    color: red;
+}
+main #pages .active{
+    transform: scale(1.2);
+    background: rgb(202, 221, 115);
+}
+/* Subpages */
+
+.dane-ubranie{
+    width: 100%;
+    margin-top: 50px;
+}
+.dane-ubranie, .dane-ubranie #content_text{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+}
+.dane-ubranie #content_text{
+    background-color: rgb(184, 180, 180);
+    color: black;
+    width: 60%;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: 100px;
+    z-index: 1;
+}
+.dane-ubranie #content_text article{
+    font-family:cursive;
+    width: 70%;
+}
+.dane-ubranie #content_text h1{
+    align-self: flex-start;
+    text-transform: uppercase;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    padding-left: 50px;
+}
+.dane-ubranie img{
+    margin: 200px 100px 0px 100px;
+    height: 800px;
+    border-radius: 15px;
+    object-fit: cover;
+    padding: 50px 25px 100px 25px ;
+    background-color:  white;
+    box-shadow: 0 8px 6px -6px black;
+    align-self: flex-end;
+    width: 800px;
+    z-index: 0;
+    transition: 2s;
+}
+.dane-ubranie img:hover{
+    z-index: 2;
+    align-self: center;
+    transform: scale(1.1);
+}
+
+/* footer */
+footer{
+    display: none;
+}
+/*INTRO*/
+.intro{
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+.slider {
+    background:black;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+  }
+  
+  .intro-text {
+    color: rgb(233, 233, 233);
+    font-family: "Heebo", sans-serif;
+    font-size: 1.6rem;
+  }
+  
+  .hide {
+    background: black;
+    overflow: hidden;
+  }
+  
+  .hide span {
+    transform: translateY(100%);
+    display: inline-block;
+  }
+@keyframes title {
+    0%{
+        color:#f30000;
+    }
+
+
+    50%{
+        color: rgb(155, 155, 155); 
+    }
+    100%{
+        color:#f30000;
+    }
+}
+@keyframes a-hover {
+    0%{
+        color: rgb(155, 155, 155);
+        /* border-bottom: 1px solid rgba(243, 00, 00, 0.1)  ;  */
+    }
+
+
+    50%{
+        
+    }
+    100%{
+        color:#f30000;
+        /* border-bottom: 2px solid rgba(243, 00, 00, 1); */
+    }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 80% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*responsible for mobile */
+@media(max-width: 1500px){
+    .box{
+		width: 40vw;
+	}
+        /* Subpages */
+
+        .dane-ubranie{
+            display: inline;
+            text-align: center;
+        }
+        /* .dane-ubranie, .dane-ubranie #content_text{
+        } */
+        .dane-ubranie #content_text{
+            background-color: rgb(184, 180, 180);
+            color: black;
+            width: 100%;
+            border-radius: 0px;
+            position:relative;
+        }
+        .dane-ubranie #content_text article{
+            width: 100%;
+        }
+        .dane-ubranie #content_text h1{
+            padding-left: 0px;
+            align-self: center;
+            font-size: 1.1em;
+        }
+        .dane-ubranie img{
+            margin: 200px 0px 0px 0px;
+            background-color:  white;;
+            height: auto;
+            width: 80%;
+        }
+}
+@media(max-width:1024px){
+    /* header */
+    header .header-div nav #hamburger{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    header .header-div nav ul{
+        display: none;
+    }
+    header .header-div nav ul ol{
+        height: 100vh;
+        position: fixed;
+        top: -120%;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        flex-direction: column;
+        color: rgb(228, 173, 70);
+        justify-content: space-around;
+        align-items:center;
+        background: #000;
+    }
+    ol li{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid silver;
+        /* padding: 20px 0px 20px 0px; */
+    }
+    nav ul .closeMenu {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+
+    }
+    nav ul ol li a:hover {
+        background: none;
+        font-size: 1.6rem;
+    }
+    .icons i {
+        display: inline-block;
+        padding: 12px;
+    }
+    header .header-div nav {
+        justify-content: flex-end;
+    }
+    header #catalog form{
+        width: 100%;
+        display: flex;
+        justify-content:center;
+    }
+    header #catalog form #button-search{
+        width: 25vw;
+        height: 15vw;
+        transition: 2s;
+    }
+    header #catalog form #search-text-category{
+        width: 40vw;
+        height: 15vw;
+        border-radius: 10px 0px 0px  10px ;
+        transition: 2s;
+    }
+    header #catalog form #category_id{
+        transition: 2s;
+        border-radius: 0px 10px 10px 0px ;
+        width: 40vw;
+        height: 15vw;
+
+    }
+    header #catalog form select option{
+       text-align: center;
+       height: 10vh;
+      
+    }
+    /* aside */
+    aside h1{
+        font-size: 150px;
+        transition: 2s;
+    }
+
+    /* main */
+	.box{
+		width: 70vw;
+		height: 80vh;
+	}
+	.details p{
+		font-size: 1em;
+        align-items: center;
+	}
+    .model{
+        height: 60%;
+    }
+    .details{
+        width: 90%;      
+    }
+    .slide{
+        display: none;
+    }
+    /* Subpages */
+    .dane-ubranie img{
+        padding: 25px 12px 50px 12px ;
+        margin: 50px 0px 0px 0px;
+    }
+
+
+	
+}
